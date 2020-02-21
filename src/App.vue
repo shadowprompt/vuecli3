@@ -1,17 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <section>
+    <!--<ul>-->
+      <!--<item v-for="(item, index) in items" :key="index" :item="item">{{-->
+        <!--item-->
+      <!--}}</item>-->
+    <!--</ul>-->
+    <!--<ul>-->
+      <!--<item v-for="(item, index) in items" :key="index" :item="item">{{-->
+        <!--item-->
+      <!--}}</item>-->
+    <!--</ul>-->
+    <hello-world ok="okTest" @input="onInput"></hello-world>
+  </section>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import item from "./components/LayoutBlock.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    HelloWorld,
+    item
+  },
+  // data() {
+  //   return {
+  //     items: [2, 4, 6]
+  //   };
+  // },
+  methods: {
+    onInput(){
+      console.log(' -> input');
+    }
   }
 };
 </script>
