@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import DragPaste from "../lib/DragPaste";
+import DragPaste from '../lib/MyDragPaste';
 export default {
-  name: "dragPaste",
+  name: 'dragPaste',
   data() {
     return {
       isOfficialAccount: false,

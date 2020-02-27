@@ -36,8 +36,8 @@
 
 <script>
 import { mapState } from "vuex";
-import LayoutBlock from "./LayoutBlock";
-import cusButton from "./cusButton";
+import LayoutBlock from "../components/LayoutBlock";
+import cusButton from "../components/cusButton";
 import "../assets/block-kit-builder.b16b93b.min.css";
 import "../assets/modern.vendor.50820df.min.css";
 

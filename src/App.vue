@@ -10,30 +10,22 @@
         <!--item-->
       <!--}}</item>-->
     <!--</ul>-->
-    <hello-world ok="okTest" @input="onInput"></hello-world>
+    <router-link to="/">Index</router-link>
+    <router-link to="/helloWorld">helloWorld</router-link>
+    <router-link to="/dragPaste">dragPaste</router-link>
+    <router-view></router-view>
   </section>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import item from "./components/LayoutBlock.vue";
 
 export default {
-  name: "app",
-  components: {
-    HelloWorld,
-    item
-  },
+  name: 'app',
   // data() {
   //   return {
   //     items: [2, 4, 6]
   //   };
   // },
-  methods: {
-    onInput(){
-      console.log(' -> input');
-    }
-  }
 };
 </script>
 
@@ -45,5 +37,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+a {
+  padding: 4px;
 }
 </style>
