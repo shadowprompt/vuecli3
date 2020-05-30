@@ -4,14 +4,40 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="icon" href="/favicon.ico">
+    <script src="./go-debug.js"></script>
+    <script src="./orgchart.js"></script>
+
     <title>vuecli3</title>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but vuecli3 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <div id="orgchart" style="width: 800px;height: 500px"></div>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+      var chart = new OrgChart(document.getElementById("orgchart"), {
+        mouseScrool: OrgChart.action.none,
+        nodeMouseClick: OrgChart.action.none,
+        // nodeMouseClick: function () {
+        //   console.log('nodeMouseClick -> ', arguments);
+        // },
+        nodeBinding: {
+          field_0: "name"
+        },
+        nodes: [
+          { id: 1, name: "Amber McKenzie" },
+          { id: 2, pid: 1, name: "Ava Field" },
+          { id: 3, pid: 1, name: "Peter Stevens" }
+        ]
+      });
+      chart.on('click', function (sender, args) {
+        console.log('click -> ', arguments);
+        // your code goes here
+        // return false; to cancel the operation
+      });
+    </script>
   </body>
 </html>

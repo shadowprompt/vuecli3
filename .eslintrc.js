@@ -3,7 +3,8 @@
 module.exports = {
   root: true,
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
+    sourceType: 'module'
   },
   env: {
     browser: true,
@@ -31,8 +32,7 @@ module.exports = {
     'space-before-function-paren': 0,
     'comma-dangle': 0,
     'semi': 0,
-    // 'flatTernaryExpressions': true // 指定是否需要缩进嵌套在其他三元表达式中的三元表达式 默认 false
   },
   // 把vue的缩进检测关掉
   overrides: [ { 'files': ['*.vue'], 'rules': { 'indent': 'off' } } ]
-};
+}

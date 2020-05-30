@@ -13,6 +13,7 @@
     <router-link to="/">Index</router-link>
     <router-link to="/helloWorld">helloWorld</router-link>
     <router-link to="/dragPaste">dragPaste</router-link>
+    <router-link to="/goJs">goJs</router-link>
     <router-view></router-view>
   </section>
 </template>
@@ -21,11 +22,11 @@
 
 export default {
   name: 'app',
-  // data() {
-  //   return {
-  //     items: [2, 4, 6]
-  //   };
-  // },
+  data() {
+    return {
+      // items: [2, 4, 6]
+    };
+  },
 };
 </script>
 

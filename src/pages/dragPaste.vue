@@ -7,7 +7,7 @@
     @dragleave="onDragLeave"
     @dragover="onDragOver"
   >
-    <div class="inner-container" contenteditable="false">
+    <div class="inner-container">
       {{ opt }}
       <div style="width: 149px;height: 120px;background-color: cornflowerblue">
         988

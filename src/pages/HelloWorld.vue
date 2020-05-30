@@ -31,6 +31,31 @@
         :key="index"
       ></layout-block>
     </section>
+    <iframe id="editorIframe" style="width: 100%;height: 100%;border:none">
+    </iframe>
+
+    <section>
+      <p>
+        <label>
+          <span>account</span>
+          <input v-model="form.account"></input>
+        </label>
+      </p>
+      <p>
+        <label>
+          <span>password</span>
+          <input v-model="form.password"></input>
+        </label>
+      </p>
+      <p>
+        <label>
+          <span><img :src="captchaUrl" @click="timestamp = Date.now()"></span>
+          <input v-model="form.captcha"></input>
+        </label>
+      </p>
+      <p><button @click="onSubmit">登录</button></p>
+    </section>
+    <my-address></my-address>
   </div>
 </template>
 
@@ -40,6 +65,8 @@ import LayoutBlock from "../components/LayoutBlock";
 import cusButton from "../components/cusButton";
 import "../assets/block-kit-builder.b16b93b.min.css";
 import "../assets/modern.vendor.50820df.min.css";
+import { axios } from '../utils';
+import myAddress from '../components/Address'
 
 const blocks1 = [
   {
@@ -602,10 +629,17 @@ export default {
   },
   components: {
     LayoutBlock,
-    cusButton
+    cusButton,
+    myAddress,
   },
   data() {
     return {
+      form: {
+        account: '18918121373',
+        password: 'UBVJdWPoJP4sr4dmcN6CxQ==',
+        captcha: '',
+      },
+      timestamp: Date.now(),
       list: [2, 5, { id: 3 }],
       a: {
         a: 110
@@ -621,7 +655,11 @@ export default {
         console.log("ok", ok);
         return ok + "_" + first;
       };
-    }
+    },
+    captchaUrl() {
+      return `https://select.pdgzf.com/api/v1.0/gzf/captcha/image/captcha.png?height=47&width=135&date=${this.timestamp}`
+    },
+
   },
   mounted() {
     window.vm = this;
@@ -629,11 +667,25 @@ export default {
     document.addEventListener("click", e => {
       console.log(" 点击-> ", e.target);
     });
+    const iframe = document.querySelector('#editorIframe');
+    iframe.onload = () => {
+      console.log('iframe onload');
+    };
+    console.log('mounted', iframe);
   },
   methods: {
+    async onSubmit() {
+      const res = await axios.post('/api/gzf', {
+        ...this.form,
+      });
+      console.log(' res-> ', res);
+    },
     onClick() {
       this.blocks = parseInt((Math.random() * 100) % 2) ? blocks1 : blocks2;
-    }
+    },
+    handleEnter() {
+      console.log(' enter-> ', arguments);
+    },
   },
   watch: {
     listData: {
