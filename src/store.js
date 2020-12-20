@@ -2,7 +2,8 @@ export default {
   namespace: true,
   state: {
     abc: 1,
-    listData: []
+    listData: [],
+    testObj: {},
   },
   mutations: {
     ADD(state, payload) {
@@ -10,6 +11,9 @@ export default {
     },
     ADD_ITEM(state, payload) {
       state.listData.push(payload);
+    },
+    UPDATE_OBJ(state, payload) {
+      state.testObj = payload;
     }
   },
   actions: {

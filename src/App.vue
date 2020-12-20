@@ -10,11 +10,19 @@
         <!--item-->
       <!--}}</item>-->
     <!--</ul>-->
-    <router-link to="/">Index</router-link>
+    <router-link to="/ckEditor">ckEditor</router-link>
     <router-link to="/helloWorld">helloWorld</router-link>
+    <router-link to="/slack">slack</router-link>
     <router-link to="/dragPaste">dragPaste</router-link>
     <router-link to="/goJs">goJs</router-link>
-    <router-view></router-view>
+    <router-link to="/js2Pdf">js2Pdf</router-link>
+    <router-link to="/ivrList">ivrList</router-link>
+    <router-link to="/ivrNew">ivrNew</router-link>
+    <router-link to="/goNext">生命周期</router-link>
+    <router-link to="/goBack">goBack</router-link>
+    <router-link to="/asyncValidate">asyncValidate</router-link>
+    <router-link to="/updateTest">updateTest</router-link>
+    <router-view :key="$route.fullPath"></router-view>
   </section>
 </template>
 
